@@ -3,6 +3,7 @@ package pl.jpa;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class EntityManagerExercises {
@@ -33,6 +34,11 @@ public class EntityManagerExercises {
         }
 
         entityManager.getTransaction().commit();
+
+        // albo opakować w Optionala
+//       Long salary =  Optional.ofNullable(entityManager.find(Employee.class, 48L))
+//        .map(employee1 -> employee.getSalary())
+//        .orElse(0L);
 
     }
 
