@@ -1,27 +1,28 @@
 package pl.jpa;
 
-import jdk.Exported;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 
+@NoArgsConstructor
+
 @Entity
+@Table(name = "product" , uniqueConstraints={@UniqueConstraint(columnNames={"name"})})
 public class Product {
 
     @Id
     @GeneratedValue
     private Long id;
+    @Column(unique = true,nullable = false)
     private String name;
+    @Column (nullable = false)
     private BigDecimal price;
 
-    public Product (){
 
-    }
-
-    public Product(Long id, String name, BigDecimal price) {
-        this.id = id;
+    public Product( String name, BigDecimal price) {
         this.name = name;
         this.price = price;
     }

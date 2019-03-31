@@ -1,5 +1,8 @@
 package pl.jpa;
 
+import lombok.NoArgsConstructor;
+
+
 import javax.persistence.*;
 
 @Entity
@@ -18,10 +21,33 @@ public class Employee {
         //dla potrzeb hibernate
     }
 
-    public Employee(Long id, String name, Long salary) {
-        this.id = id;
+    public Employee( String name, Long salary) {
         this.name = name;
         this.salary = salary;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSalary(Long salary) {
+        this.salary = salary;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Long getSalary() {
+        return salary;
     }
 
     @Override
